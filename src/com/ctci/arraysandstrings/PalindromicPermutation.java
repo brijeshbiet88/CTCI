@@ -17,6 +17,16 @@ public class PalindromicPermutation {
 		str = "Zeus was innocent";
 		System.out.println("Is String= "+str+" ?Palindrome :"+isPermutationOfPalindrome(str));
 		System.out.println();
+		
+		System.out.println("--------------------Test Case 4----------------------");
+		str = "dad";
+		System.out.println("Is String= "+str+" ?Palindrome :"+isPermutationOfPalindrome(str));
+		System.out.println();
+		
+		System.out.println("--------------------Test Case 5----------------------");
+		str = "noon";
+		System.out.println("Is String= "+str+" ?Palindrome :"+isPermutationOfPalindrome(str));
+		System.out.println();
 	}
 	
 	public static boolean isPermutationOfPalindrome(String phrase) {
@@ -28,11 +38,11 @@ public class PalindromicPermutation {
 	public static int toggle(int bitVector, int index) {
 		if (index < 0) return bitVector;
 		
-		int mask = 1 << index;
+		int mask = 1 << index; // sets ith bit in mask 
 		if ((bitVector & mask) == 0) {
-			bitVector |= mask;
+			bitVector |= mask; // if a new char comes then bit vector is updated
 		} else {
-			bitVector &= ~mask;
+			bitVector &= ~mask; // in case any char is repeated then that bit is reset to 0
 		}
 		return bitVector;
 	}
