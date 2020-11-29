@@ -33,6 +33,7 @@ public class ListUtil {
 		start.next.next.next.next.next.setNext(new ListNode(2));
 		start.next.next.next.next.next.next.setNext(new ListNode(5));
 		start.next.next.next.next.next.next.next.setNext(new ListNode(8));
+		start.next.next.next.next.next.next.next.next.setNext(new ListNode(2));
 		return start;
 	}
 }
