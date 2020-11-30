@@ -36,4 +36,17 @@ public class ListUtil {
 		start.next.next.next.next.next.next.next.next.setNext(new ListNode(2));
 		return start;
 	}
+	
+	public static ListNode reverse(ListNode start) {
+		ListNode prev = null , curr = start , next = null;
+		
+		while (curr != null) {
+			next = curr.next;
+			curr.setNext(prev);
+			prev = curr;
+			curr = next;
+		}
+		
+		return prev;
+	}
 }
