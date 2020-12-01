@@ -36,10 +36,7 @@ public class ListWithLoop {
 		ListNode slow = start , fast = start;
 		while(fast != null && fast.next != null) {
 			slow = slow.next;
-			fast = fast.next;
-			if(fast != null) {
-				fast = fast.next;
-			}
+			fast = fast.next.next;
 			
 			if(fast == slow) {
 				return true;
