@@ -37,6 +37,20 @@ public class ListUtil {
 		return start;
 	}
 	
+	public static ListNode getListWithLoop() {
+		ListNode start = new ListNode(1);
+		start.setNext(new ListNode(2));
+		start.next.setNext(new ListNode(3));
+		start.next.next.setNext(new ListNode(4));
+		start.next.next.next.setNext(new ListNode(5));
+		start.next.next.next.next.setNext(new ListNode(6));
+		start.next.next.next.next.next.setNext(new ListNode(7));
+		start.next.next.next.next.next.next.setNext(new ListNode(8));
+		start.next.next.next.next.next.next.next.setNext(new ListNode(9));
+		start.next.next.next.next.next.next.next.next.setNext(start.next.next.next);
+		return start;
+	}
+	
 	public static ListNode reverse(ListNode start) {
 		ListNode prev = null , curr = start , next = null;
 		
