@@ -14,7 +14,7 @@ public class LevelOrderTraversal {
 		traverseLevelorderNewLine(root);
 	}
 
-	private static void traverseLevelorderNewLine(TreeNode root) {
+	public static void traverseLevelorderNewLine(TreeNode root) {
 
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
@@ -41,7 +41,7 @@ public class LevelOrderTraversal {
 		
 	}
 
-	private static void traverseLevelorder(TreeNode root) {
+	public static void traverseLevelorder(TreeNode root) {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
 
