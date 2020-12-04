@@ -3,7 +3,7 @@ package com.ctci.tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LeftViewTree {
+public class RightViewTree {
 	
 	public static void main(String[] args) {
 		TreeNode root = TreeUtils.get15NodeTree();
@@ -11,10 +11,10 @@ public class LeftViewTree {
 		LevelOrderTraversal.traverseLevelorderNewLine(root);
 		System.out.println();
 		System.out.println("Left View Of Tree : ");
-		leftView(root);
+		rightView(root);
 	}
 
-	private static void leftView(TreeNode root) {
+	private static void rightView(TreeNode root) {
 
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
@@ -28,12 +28,12 @@ public class LeftViewTree {
 			if(count == 1)
 			System.out.print(tmp.data+" ");
 			
-			if(tmp.left != null) {
-				q.add(tmp.left);
-			}
-			
 			if(tmp.right != null) {
 				q.add(tmp.right);
+			}
+			
+			if(tmp.left != null) {
+				q.add(tmp.left);
 			}
 			n--;
 			}
@@ -43,7 +43,7 @@ public class LeftViewTree {
 	}
 }
 /*
- * Print Level Order Of Tree : 
+ *Print Level Order Of Tree : 
 1 
 2 3 
 4 5 6 7 
@@ -51,7 +51,7 @@ public class LeftViewTree {
 
 Left View Of Tree : 
 1 
-2 
-4 
-8 
-*/
+3 
+7 
+15  
+ */
