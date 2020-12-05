@@ -5,17 +5,22 @@ import java.util.ArrayList;
 public class GraphNode {
 
 	public Integer data;
+	public boolean visited;
 	ArrayList<GraphNode> children ;
 	
 	public GraphNode(Integer data) {
 		super();
 		this.data = data;
+		visited = false;
 		children = new ArrayList<GraphNode>();
 	}
 
-	@Override
-	public String toString() {
-		return "GraphNode [data=" + data + "]";
+	public boolean isVisited() {
+		return visited;
+	}
+
+	public void setVisited(boolean visited) {
+		this.visited = visited;
 	}
 
 	public Integer getData() {
@@ -34,5 +39,9 @@ public class GraphNode {
 		this.children = children;
 	}
 	
+	@Override
+	public String toString() {
+		return "GraphNode [data=" + data + "]";
+	}
 	
 }
