@@ -103,4 +103,22 @@ public class TreeUtils {
 		postOrder(root.right);
 		System.out.print(root.data+" ");
 	}
+	
+	public static int findHeightUtil(TreeNode root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		int lHeight = findHeightUtil(root.left);
+		int rHeight = findHeightUtil(root.right);
+		int height = lHeight > rHeight ? lHeight : rHeight ;
+		return height + 1;
+		
+	}
+	
+	public static int findHeight(TreeNode root) {
+		int height = findHeightUtil(root);
+		height--;
+		return 	height;	
+	}
 }
