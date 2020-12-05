@@ -52,13 +52,12 @@ public class GraphUtils {
 	
 	public static void printGraph(GraphNode start) {
 		Queue< GraphNode> q = new LinkedList<GraphNode>();
-		HashSet<GraphNode> set = new HashSet<GraphNode>();
 		q.add(start);
 		int vertex = 1;
 		while(!q.isEmpty()) {
 			
 			GraphNode tmp = q.poll();
-			set.add(tmp);
+			tmp.visited = true;
 			ArrayList<GraphNode> children = tmp.getChildren();
 			System.out.println("Adjacency List of Vertex "+tmp.data);
 			System.out.print("Head--> ");
@@ -68,9 +67,9 @@ public class GraphUtils {
 				else {
 					System.out.print(children.get(i).data);
 				}
-				if(!set.contains(children.get(i))) {
+				if(!children.get(i).visited ) {
 					q.add(children.get(i));
-					set.add(children.get(i));
+					children.get(i).visited = true;
 				}
 			}
 			System.out.println("\n");
