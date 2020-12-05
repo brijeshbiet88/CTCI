@@ -25,7 +25,7 @@ public class GraphUtils {
 		children2.add(vertex1);
 		children2.add(vertex3);
 		children2.add(vertex4);
-		
+		children2.add(vertex6);
 		vertex2.setChildren(children2);
 		
 		ArrayList<GraphNode> children3 = new ArrayList<GraphNode>();
@@ -41,11 +41,10 @@ public class GraphUtils {
 		ArrayList<GraphNode> children5 = new ArrayList<GraphNode>();
 		children5.add(vertex4);
 		children5.add(vertex5);
+		children5.add(vertex6);
 		vertex5.setChildren(children5);
 		
 		ArrayList<GraphNode> children6 = new ArrayList<GraphNode>();
-		children6.add(vertex5);
-		children6.add(vertex4);
 		vertex6.setChildren(children6);
 		
 		return vertex1;
@@ -55,13 +54,13 @@ public class GraphUtils {
 		Queue< GraphNode> q = new LinkedList<GraphNode>();
 		HashSet<GraphNode> set = new HashSet<GraphNode>();
 		q.add(start);
-		int vertex = 0;
+		int vertex = 1;
 		while(!q.isEmpty()) {
 			
 			GraphNode tmp = q.poll();
-			
+			set.add(tmp);
 			ArrayList<GraphNode> children = tmp.getChildren();
-			System.out.println("Adjacency List of Vertex "+vertex);
+			System.out.println("Adjacency List of Vertex "+tmp.data);
 			System.out.print("Head--> ");
 			for(int i = 0 ; i < children.size() ; i++) {
 				if(i < children.size() -1)
