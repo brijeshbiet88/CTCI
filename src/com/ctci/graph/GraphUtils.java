@@ -40,7 +40,6 @@ public class GraphUtils {
 		
 		ArrayList<GraphNode> children5 = new ArrayList<GraphNode>();
 		children5.add(vertex4);
-		children5.add(vertex5);
 		children5.add(vertex6);
 		vertex5.setChildren(children5);
 		
@@ -74,6 +73,24 @@ public class GraphUtils {
 			}
 			System.out.println("\n");
 			vertex++;
+		}
+	}
+	
+	public static void clearVisitedGraph(GraphNode start) {
+		Queue<GraphNode> q = new LinkedList<GraphNode>();
+		HashSet<GraphNode> set = new HashSet<GraphNode>();
+		q.add(start);
+		while (!q.isEmpty()) {
+
+			GraphNode tmp = q.poll();
+			tmp.visited = false;
+			ArrayList<GraphNode> children = tmp.getChildren();
+			for (int i = 0; i < children.size(); i++) {
+				if (!set.contains(children.get(i))) {
+					q.add(children.get(i));
+					set.add(children.get(i));
+				}
+			}
 		}
 	}
 }

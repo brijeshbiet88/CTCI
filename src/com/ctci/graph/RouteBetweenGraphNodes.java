@@ -11,11 +11,13 @@ public class RouteBetweenGraphNodes {
 		GraphNode head = GraphUtils.getGraph();
 		System.out.println("Print Graph :");
 		GraphUtils.printGraph(head);
+		GraphUtils.clearVisitedGraph(head);
 		
 		System.out.println("---------------------------Test Case 1 -------------------------------");
 		GraphNode start = head.getChildren().get(1);
 		GraphNode end = head.getChildren().get(1).getChildren().get(1);
 		System.out.println("There is a Route Between "+start.data+" and "+end.data+" ? "+search(start, start, end));
+		GraphUtils.clearVisitedGraph(head);
 		System.out.println();
 		
 		
@@ -23,24 +25,28 @@ public class RouteBetweenGraphNodes {
 		start = head.getChildren().get(0).getChildren().get(3);
 		end = head.getChildren().get(1).getChildren().get(1);
 		System.out.println("There is a Route Between "+start.data+" and "+end.data+" ? "+search(start, start, end));
+		GraphUtils.clearVisitedGraph(head);
 		System.out.println();
 		
 		System.out.println("---------------------------Test Case 3 -------------------------------");
 		start = head.getChildren().get(0).getChildren().get(0).getChildren().get(0);
 		end = head.getChildren().get(1).getChildren().get(1);
 		System.out.println("There is a Route Between "+start.data+" and "+end.data+" ? "+search(start, start, end));
+		GraphUtils.clearVisitedGraph(head);
 		System.out.println();
 		
 		System.out.println("---------------------------Test Case 4 -------------------------------");
 		start = head.getChildren().get(1).getChildren().get(1).getChildren().get(0);
 		end = head.getChildren().get(1).getChildren().get(1);
 		System.out.println("There is a Route Between "+start.data+" and "+end.data+" ? "+search(start, start, end));
+		GraphUtils.clearVisitedGraph(head);
 		System.out.println();
 		
 		System.out.println("---------------------------Test Case 5 -------------------------------");
 		start = head.getChildren().get(0).getChildren().get(2);
 		end = head.getChildren().get(0).getChildren().get(3);
 		System.out.println("There is a Route Between "+start.data+" and "+end.data+" ? "+search(start, start, end));
+		GraphUtils.clearVisitedGraph(head);
 		System.out.println();
 		
 		System.out.println("---------------------------Test Case 6 -------------------------------");
@@ -54,7 +60,6 @@ public class RouteBetweenGraphNodes {
 	public static boolean search(GraphNode head, GraphNode start, GraphNode end) {
 
 		Queue<GraphNode> q = new LinkedList<GraphNode>();
-		HashSet<GraphNode> set = new HashSet<GraphNode>();
 		if (start == end) {
 			return true;
 		}
@@ -62,12 +67,11 @@ public class RouteBetweenGraphNodes {
 		while (!q.isEmpty()) {
 
 			GraphNode tmp = q.poll();
-
+			tmp.visited = true;
 			ArrayList<GraphNode> children = tmp.getChildren();
 			for (int i = 0; i < children.size(); i++) {
-				if (!set.contains(children.get(i))) {
+				if (!children.get(i).visited) {
 					q.add(children.get(i));
-					set.add(children.get(i));
 					if (children.get(i) == end) {
 						return true;
 					}
