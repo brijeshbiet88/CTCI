@@ -14,7 +14,6 @@ public class MinimalBstSortedArray {
 
 	private static TreeNode createMinimalBst(int[] a) {
 		return createMinimalBST(a , 0 , a.length -1);
-		
 	}
 
 	private static TreeNode createMinimalBST(int[] a, int start, int end) {

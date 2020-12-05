@@ -26,6 +26,30 @@ public class TreeUtils {
 		return root;
 	}
 	
+	public static TreeNode getBst() {
+		TreeNode root = new TreeNode(4);
+
+		TreeNode node2 = new TreeNode(2);
+		TreeNode node3 = new TreeNode(6);
+
+		TreeNode node4 = new TreeNode(1);
+		TreeNode node5 = new TreeNode(3);
+
+		TreeNode node6 = new TreeNode(5);
+		TreeNode node7 = new TreeNode(7);
+
+		root.setLeft(node2);
+		root.setRight(node3);
+
+		node2.setLeft(node4);
+		node2.setRight(node5);
+
+		node3.setLeft(node6);
+		node3.setRight(node7);
+
+		return root;
+	}
+	
 	public static TreeNode get15NodeTree() {
 		TreeNode root = new TreeNode(1);
 		
