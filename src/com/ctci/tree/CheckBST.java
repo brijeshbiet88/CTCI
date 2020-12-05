@@ -7,6 +7,7 @@ public class CheckBST {
 		System.out.println("Print Tree :");
 		LevelOrderTraversal.traverseLevelorderNewLine(root);
 		System.out.println("Is the Tree Valid Bst ? : "+checkBst(root));
+		System.out.println("Is the Tree Valid Bst method 2 ? : "+checkBst2(root));
 		
 		System.out.println();
 		
@@ -17,6 +18,8 @@ public class CheckBST {
 		System.out.println("Print Tree :");
 		LevelOrderTraversal.traverseLevelorderNewLine(root2);
 		System.out.println("Is the Tree Valid Bst ? : "+checkBst(root2));
+		System.out.println("Is the Tree Valid Bst method 2 ? : "+checkBst2(root2));
+		System.out.println();
 		
 	}
 	
@@ -41,18 +44,40 @@ public class CheckBST {
 		}
 		return true;
 	}
+	
+	private static Boolean checkBst2(TreeNode root) {
+		Integer min = null , max = null ;
+		return checkBst2(root , min , max);
+	}
+
+	private static Boolean checkBst2(TreeNode root, Integer min, Integer max) {
+		if(root == null) {
+			return true;
+		}
+		
+		if((min != null && root.data <= min) || (max != null && root.data >= max))
+			return false;
+		
+		if((!checkBst2(root.left, min, root.data)) || (!checkBst2(root.right, root.data, max)))
+			return false;
+		
+		return true;
+	}
 
 }
 /*
- * Print Tree :
+ Print Tree :
 4 
 2 6 
 1 3 5 7 
 Is the Tree Valid Bst ? : true
+Is the Tree Valid Bst method 2 ? : true
 
 Print Tree :
 20 
 10 30 
 25 
 Is the Tree Valid Bst ? : false
+Is the Tree Valid Bst method 2 ? : false
+
  * */
