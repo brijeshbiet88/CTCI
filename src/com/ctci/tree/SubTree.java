@@ -85,4 +85,3 @@ ordered String 2 : 2 4 8 X X 9 X X 5 2 X X 11 X X
 
 Is T4 subtree of T1 ? : true
  * */
- */
