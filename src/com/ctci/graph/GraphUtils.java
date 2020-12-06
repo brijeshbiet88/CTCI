@@ -30,7 +30,7 @@ public class GraphUtils {
 		
 		ArrayList<GraphNode> children3 = new ArrayList<GraphNode>();
 		children3.add(vertex1);
-		children3.add(vertex2);
+		children3.add(vertex6);
 		vertex3.setChildren(children3);
 		
 		ArrayList<GraphNode> children4 = new ArrayList<GraphNode>();
