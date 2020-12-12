@@ -97,6 +97,36 @@ public class TreeUtils {
 		
 		return root;
 	}
+	
+	public static TreeNode getTree() {
+		TreeNode root = new TreeNode(11);
+		
+		TreeNode node2 = new TreeNode(5);
+		TreeNode node3 = new TreeNode(-3);
+		
+		root.setLeft(node2);
+		root.setRight(node3);
+		
+		TreeNode node4 = new TreeNode(3);
+		TreeNode node5 = new TreeNode(2);
+		
+		node2.setLeft(node4);
+		node2.setRight(node5);
+		
+		TreeNode node6 = new TreeNode(11);
+		
+		node3.setRight(node6);
+		
+		TreeNode node7 = new TreeNode(3);
+		TreeNode node8 = new TreeNode(-2);
+	
+		node4.setLeft(node7);
+		node4.setRight(node8);
+		
+		node5.setRight(new TreeNode(1));
+		
+		return root;
+	}
 
 	
 	public static void preOrder(TreeNode root) {
